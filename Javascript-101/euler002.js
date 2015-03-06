@@ -25,4 +25,4 @@ while (fib1 < limit){
 	fib2 = placeholder;
 }
 
-console.out(sum);
+console.log(sum); /* 4613732 */
