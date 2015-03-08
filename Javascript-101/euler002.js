@@ -8,21 +8,18 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 This is a very simple solution. I preload the first two Fibonacci numbers into the variables for fewer complications.
 The program checks if the leading Fibonacci number is even and adds it to 'sum' if it is.
 It saves the leading Fibonacci number in 'placeholder', adds 'fib1' and 'fib2' together to find the next leading Fibonacci number, and 'fib2' grabs the value from 'placeholder'.
-I'm sure there's a way to do this without using a 'placeholder' variable!
 */
 
 var sum = 0;
 var limit = 4000000;
 var fib1 = 2;
 var fib2 = 1;
-var placeholder = 0;
 while (fib1 < limit){
 	if(fib1 % 2 === 0){
 		sum += fib1;
 	}
-	placeholder = fib1;
 	fib1 += fib2;
-	fib2 = placeholder;
+	fib2 = fib1 - fib2;
 }
 
 console.log(sum); /* 4613732 */
