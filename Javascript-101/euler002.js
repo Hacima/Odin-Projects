@@ -7,7 +7,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 This is a very simple solution. I preload the first two Fibonacci numbers into the variables for fewer complications.
 The program checks if the leading Fibonacci number is even and adds it to 'sum' if it is.
-It saves the leading Fibonacci number in 'placeholder', adds 'fib1' and 'fib2' together to find the next leading Fibonacci number, and 'fib2' grabs the value from 'placeholder'.
+It adds 'fib1' and 'fib2' together to find the next leading Fib number, and 'fib2' becomes the trailing fib number.
 */
 
 var sum = 0;
