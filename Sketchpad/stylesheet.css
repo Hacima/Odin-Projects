@@ -1,16 +1,38 @@
+#wrap {
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+#colorSelection {
+    height: 25px;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.color {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#functionArea {
+    margin-bottom:10px;
+}
+
 #pixelArea {
     width: 500px;
     height: 500px;
+    margin: auto;
 }
 
 .pixel {
-    background-color: #363636;
+    background-color: rgb(0, 0, 0);
     display: inline-block;
     width: 20px;
     height: 20px;
     border-radius: 10px;
-}
-
-.grey {
-    background-color: #8d8d8d;
 }
