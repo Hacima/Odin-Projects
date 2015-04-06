@@ -1,0 +1,16 @@
+#pixelArea {
+    width: 500px;
+    height: 500px;
+}
+
+.pixel {
+    background-color: #363636;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.grey {
+    background-color: #8d8d8d;
+}
