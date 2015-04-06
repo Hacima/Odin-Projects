@@ -15,7 +15,6 @@ $(document).ready(function() {
     .mouseup(function() {
         isDown = false;    // When mouse goes up, set isDown to false
     });
-
     
     $(".color").click(function() {
         selectedColor = $(this).css("background-color");
@@ -23,7 +22,7 @@ $(document).ready(function() {
         $(this).css("border", "1px solid black"); //add 'selection' border to selected color
     });
     
-    $(".pixel").click(function() {
+    $(".pixel").mousedown(function() {
         $(this).css("background-color", selectedColor);
     });
     
