@@ -44,4 +44,16 @@ $(document).ready(function() {
             $(this).css("background-color", "rgb(" + randomOne + ',' + randomTwo + ',' + randomThree + ')');
         });
     });
+    
+    $("#resize").click(function() {
+        var userWidth = prompt("Please input a width or length.");
+        var pixelArea = userWidth*userWidth;
+        var pixelWidth = pixelAreaSize/userWidth;
+        $("#pixelArea").empty();
+        for (i = 0; i < pixelArea; i += 1) {
+            $("#pixelArea").append("<div class='pixel'></div>");
+        }
+        $(".pixel").css("width", pixelWidth);
+        $(".pixel").css("height", pixelWidth);
+    });
 });
