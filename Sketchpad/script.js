@@ -5,13 +5,14 @@ $(document).ready(function() {
         selectedColor = "black",
         isDown = false;
         i = 0;
+    
     for (i = 0; i < (pixelsPerLine*pixelsPerLine); i += 1) {
         $("#pixelArea").append("<div class='pixel'></div>");
     }
     
     $(document).mousedown(function() {
         isDown = true;      // When mouse goes down, set isDown to true
-    })
+    });
     .mouseup(function() {
         isDown = false;    // When mouse goes up, set isDown to false
     });
@@ -22,14 +23,14 @@ $(document).ready(function() {
         $(this).css("border", "1px solid black"); //add 'selection' border to selected color
     });
     
-    $(".pixel").mousedown(function() {
-        $(this).css("background-color", selectedColor);
-    });
-    
-    $(".pixel").mouseover(function() {
+    $('#pixelArea').on('mouseover', 'div', function() {
         if(isDown) {
             $(this).css("background-color", selectedColor);
         }
+    });
+    
+    $('#pixelArea').on('mousedown', 'div', function() {
+        $(this).css("background-color", selectedColor);
     });
     
     $("#reset").click(function() {
@@ -37,23 +38,35 @@ $(document).ready(function() {
     });
     
     $("#randomize").click(function() {
-        $(".pixel").each(function() {
-            var randomOne = Math.floor(Math.random() * 256),
-                randomTwo = Math.floor(Math.random() * 256),
-                randomThree = Math.floor(Math.random() * 256);
-            $(this).css("background-color", "rgb(" + randomOne + ',' + randomTwo + ',' + randomThree + ')');
-        });
+        randomize();
     });
     
     $("#resize").click(function() {
-        var userWidth = prompt("Please input a width or length.");
-        var pixelArea = userWidth*userWidth;
-        var pixelWidth = pixelAreaSize/userWidth;
-        $("#pixelArea").empty();
-        for (i = 0; i < pixelArea; i += 1) {
-            $("#pixelArea").append("<div class='pixel'></div>");
-        }
-        $(".pixel").css("width", pixelWidth);
-        $(".pixel").css("height", pixelWidth);
+        resize(prompt("How many pixels would you like per line? (numbers above 100 are very slow - be warned!)"));
     });
 });
+
+function resize(newSize) {
+    var numPixels = newSize * newSize;
+    var pixelSize = 500 / newSize;
+    var i = 0;
+    
+    $("#pixelArea").empty();
+    
+    for (i = 0; i < numPixels; i += 1) {
+         $("#pixelArea").append("<div class='pixel'></div>");
+    }
+    
+    $(".pixel").css("width", pixelSize);
+    $(".pixel").css("height", pixelSize);
+}
+
+function randomize() {
+    $(".pixel").each(function() {
+            var randomOne = Math.floor(Math.random() * 256),
+                randomTwo = Math.floor(Math.random() * 256),
+                randomThree = Math.floor(Math.random() * 256);
+            
+            $(this).css("background-color", "rgb(" + randomOne + ',' + randomTwo + ',' + randomThree + ')');
+        });
+}
