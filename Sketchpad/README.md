@@ -9,8 +9,10 @@ The requirements for the program are as follows:
 - Optional 2: Make each square become 10% darker on every pass through with the mouse.
 
 My improvements:
-- Instead of hovering, I set it up to only change the colors upon click or click and drag. This allows for greater precision.
+- Instead of color changing on mouseover, I set it up to only change the colors upon click or click and drag. This allows for greater precision, more like MS Paint.
 - The reset button simply changes all colors to black. If the user wants a different sized canvas, there is a seperate button for that.
 - I added a number of preset colors that users can select and paint with.
 - I made the optional challenges selectable by the user.
 - I added the ability to redraw the entire canvas with random colors.
+
+![Sketchpad](https://github.com/Hacima/Odin-Projects/blob/master/Sketchpad/sketchpadExample.png)
