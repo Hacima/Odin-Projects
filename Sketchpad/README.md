@@ -15,4 +15,4 @@ My improvements:
 - I made the optional challenges selectable by the user.
 - I added the ability to redraw the entire canvas with random colors.
 
-![Sketchpad](https://github.com/Hacima/Odin-Projects/blob/master/Sketchpad/sketchpadExample.png)
+![Sketchpad](https://github.com/Hacima/Odin-Projects/blob/master/Sketchpad/sketchpadExample.PNG)
