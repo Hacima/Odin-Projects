@@ -22,10 +22,12 @@ $(document).ready(function() {
     
     $('#pixelArea').on('mouseover', 'div', function() {
         if(isDown) {
-            if($("#gradient").prop("checked")) {
-                gradient($(this));
-            } else {
+            if ($("#paint").prop("checked")) {
                 $(this).css("background-color", selectedColor);
+            } else if($("#gradient").prop("checked")) {
+                gradient($(this));
+            } else if($("#random").prop("checked")) {
+                $(this).css("background-color", randomRGB());
             }
         }
     });
@@ -46,7 +48,9 @@ $(document).ready(function() {
     });
     
     $("#randomize").click(function() {
-        randomize();
+        $(".pixel").each(function() {
+            $(this).css("background-color", randomRGB());
+        });
     });
     
     $("#resize").click(function() {
@@ -73,26 +77,17 @@ function resize(pixelsPerLine) {
     $(".pixel").css({"width": pixelSize, "height": pixelSize});
 }
 
-//Super basic! For each pixel, three random numbers from 0 to 255 are generated and used in rgb()!
-function randomize() {
-    $(".pixel").each(function() {
-        var randomOne = Math.floor(Math.random() * 256),
-            randomTwo = Math.floor(Math.random() * 256),
-            randomThree = Math.floor(Math.random() * 256);
-            
-        $(this).css("background-color", "rgb(" + randomOne + ',' + randomTwo + ',' + randomThree + ')');
-    });
-}
-
+//This gradient function sets the $pixel's background-color to about 5% darker.
 function gradient($pixel) {
     //Get the pixels rgb values. rgb = "rgb(r,g,b)" currently. We only want r, g and b, though...
-    var rgb = $pixel.css("background-color");
+    var rgb = $pixel.css("background-color"),
+        i = 0;
     
-    //This expression gets the values of x. Now rgb = ["r", "g", "b"]. They are still strings.
+    //This expression gets the values of r, g and b. Now rgb = ["r", "g", "b"]. They are still strings.
     rgb = rgb.match(/\d+/g);
 
     //This loop converts rbg[i] into an int, then decreases it by 10, making sure it doesn't go below 0.
-    for (var i in rgb) {
+    for (i in rgb) {
         rgb[i] = parseInt(rgb[i]);
         if (rgb[i] <= 10 && rgb[i] > 0) {
             rgb[i] = 0;
@@ -103,4 +98,12 @@ function gradient($pixel) {
     
     //And finally we plug 'em in! Voila, a very slight gradient is accomplished.
     $pixel.css("background-color", "rgb(" + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')');
+}
+
+//Super simple! Just returns "rgb(x,y,z)" where x, y and z are random numbers from 0 to 255!
+function randomRGB() {
+    var randomOne = Math.floor(Math.random() * 256),
+        randomTwo = Math.floor(Math.random() * 256),
+        randomThree = Math.floor(Math.random() * 256);
+    return ("rgb(" + randomOne + ',' + randomTwo + ',' + randomThree + ')');
 }
