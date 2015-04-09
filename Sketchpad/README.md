@@ -1,6 +1,6 @@
 #Sketchpad
 
-This is a sketchpad program for [The Odin Project](http://www.theodinproject.com/home).
+This is a sketchpad program for [The Odin Project](http://www.theodinproject.com/home). Try it out [here!](http://htmlpreview.github.io/?https://github.com/Hacima/Odin-Projects/blob/master/Sketchpad/index.html)
 The requirements for the program are as follows:
 - Create a 16x16 square of divs with javascript or jQuery.
 - Set up a hover effect to change the color of the square that your mouse passes over.
